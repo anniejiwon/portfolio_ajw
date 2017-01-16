@@ -1,0 +1,61 @@
+body {
+    font-family: Courier New, sans-serif;
+}
+
+#fullpage {
+    position: relative;
+}
+#first {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcome {
+    color: Pink; 
+    font-size: 20vw;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    animation: type 2s steps(60, end); 
+}
+
+#down-arrow {
+    position: fixed;
+    bottom: 0;
+}
+
+@keyframes type{ 
+  from { width: 0; } 
+} 
+
+#second {
+    height: 500px;
+}
+
+#thanks {
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#personaldiv {
+    display: flex;
+}
+
+div#fullpage div.section div#personaldiv > div {
+    color: red;
+    border: 1px solid black;
+    font-size: 6vw;
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/*#second {
+    background-image: url(../images/beach.jpg);
+    width: 100%;
+}*/
