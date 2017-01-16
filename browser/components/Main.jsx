@@ -1,17 +1,20 @@
 import React,{Component} from 'react'
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+
 
 export default class Main extends Component {
 
-    // constructor() {
-    //     super()
-    //     this.hideDownArrow = ::this.hideDownArrow
+    constructor() {
+        super()
+    }
+
+    // _hideArrow = () => {
+    //     if (window.innerHeight + window.scrollY > document.body.clientHeight) {
+    //         document.getElementById('down-arrow').style.display='none';
+    //     }
     // }
 
-    // hideDownArrow = () => {
-    //     return 'hi'
-    // }
 
-    //onScroll={}
 
     render() {
         return(
@@ -26,6 +29,11 @@ export default class Main extends Component {
                             <path d="M0-.75h24v24H0z" fill="none"/>
                         </svg>
                     </div>
+                    <div id='btn'>
+                        <FloatingActionButton id='floatbtn' label="Secondary" />
+                        <FloatingActionButton id='floatbtn' label="Secondary" />
+                        <FloatingActionButton id='floatbtn' label="Secondary" />
+                    </div>
                 </div>
                 <div className='section' id='second'>
                     <div>
@@ -36,6 +44,9 @@ export default class Main extends Component {
                         <div className='social' id='personal2'>resume</div>
                         <div className='social' id='personal3'>resume</div>
                     </div>
+                </div>
+                <div id='third'>
+                    <p>you can find me at</p>
                 </div>
             </div>
         )

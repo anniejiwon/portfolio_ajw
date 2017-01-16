@@ -9,10 +9,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
+#btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
 #welcome {
-    color: Pink; 
+    color: darkgray; 
     font-size: 20vw;
     text-align: center;
     overflow: hidden;
@@ -30,7 +36,13 @@ body {
 } 
 
 #second {
-    height: 500px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CFD8DC
+    
 }
 
 #thanks {
@@ -38,11 +50,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 70%;
 }
 
 #personaldiv {
-    display: flex;
+    margin: 0 auto;
 }
 
 div#fullpage div.section div#personaldiv > div {
@@ -52,10 +64,10 @@ div#fullpage div.section div#personaldiv > div {
     margin: 3%;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 60%;
 }
 
-/*#second {
-    background-image: url(../images/beach.jpg);
-    width: 100%;
-}*/
+#third {
+    height: 100vh;
+    width: 100vw;
+}
