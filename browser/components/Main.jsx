@@ -1,24 +1,50 @@
-import React,{Component} from 'react'
 import FloatingActionButton from 'material-ui/FloatingActionButton';
+import React,{Component} from 'react'
+
+import ResumeModal from './ResumeModal'
+
 
 
 export default class Main extends Component {
 
     constructor() {
         super()
+        this.state = {
+            resumeIsHidden: true
+        }
+        this.handleResumeToggle = ::this.handleResumeToggle
     }
 
-    // _hideArrow = () => {
-    //     if (window.innerHeight + window.scrollY > document.body.clientHeight) {
-    //         document.getElementById('down-arrow').style.display='none';
-    //     }
-    // }
+    componentDidMount() {
+        this.hideArrow()
+    }
 
+    handleResumeToggle = () => {
+        console.log('has been clicked!!')
+        this.setState({resumeIsHidden: !this.state.resumeIsHidden})
+    }
+
+    //only works on refresh right now
+    hideArrow = () => {
+        if (window.innerHeight + window.scrollY > document.body.clientHeight) {
+            document.getElementById('down-arrow').style.display='none';
+        }
+    }
 
 
     render() {
         return(
             <div id='fullpage'>
+                <div id='zero'>
+                    <div id='intro'>
+                        <div id='name'>
+                            <p>ANNIE J WON</p>
+                        </div>
+                        <div id='title'>
+                            <p><em>full stack software engineer</em></p>
+                        </div>
+                    </div>
+                </div>
                 <div id='first' className='section'>
                     <div>
                         <h1 id='welcome'>WELCOME</h1>
@@ -29,20 +55,13 @@ export default class Main extends Component {
                             <path d="M0-.75h24v24H0z" fill="none"/>
                         </svg>
                     </div>
-                    <div id='btn'>
-                        <FloatingActionButton id='floatbtn' label="Secondary" />
-                        <FloatingActionButton id='floatbtn' label="Secondary" />
-                        <FloatingActionButton id='floatbtn' label="Secondary" />
-                    </div>
                 </div>
                 <div className='section' id='second'>
-                    <div>
-                        <p id='thanks'>thanks for visiting my page</p>
+                    <div id='thankdiv'>
+                        <p id='thanks'>my resume can be viewed here</p>
                     </div>
                     <div id='personaldiv'>
-                        <div className='social' id='personal1'>resume</div>
-                        <div className='social' id='personal2'>resume</div>
-                        <div className='social' id='personal3'>resume</div>
+                        <ResumeModal />
                     </div>
                 </div>
                 <div id='third'>
@@ -52,3 +71,9 @@ export default class Main extends Component {
         )
     }
 }
+
+                    // <div id='btn'>
+                    //     <FloatingActionButton id='floatbtn' label="Secondary" />
+                    //     <FloatingActionButton id='floatbtn' label="Secondary" />
+                    //     <FloatingActionButton id='floatbtn' label="Secondary" />
+                    // </div>

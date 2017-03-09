@@ -58,17 +58,17 @@
 	
 	var _Main2 = _interopRequireDefault(_Main);
 	
-	var _MuiThemeProvider = __webpack_require__(308);
+	var _MuiThemeProvider = __webpack_require__(312);
 	
 	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
 	
-	var _colors = __webpack_require__(313);
+	var _colors = __webpack_require__(317);
 	
-	var _getMuiTheme = __webpack_require__(309);
+	var _getMuiTheme = __webpack_require__(313);
 	
 	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 	
-	var _reactTapEventPlugin = __webpack_require__(360);
+	var _reactTapEventPlugin = __webpack_require__(363);
 	
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 	
@@ -21535,13 +21535,17 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+	var _FloatingActionButton = __webpack_require__(179);
+	
+	var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _FloatingActionButton = __webpack_require__(366);
+	var _ResumeModal = __webpack_require__(311);
 	
-	var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
+	var _ResumeModal2 = _interopRequireDefault(_ResumeModal);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21557,22 +21561,70 @@
 	    function Main() {
 	        _classCallCheck(this, Main);
 	
-	        return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this));
+	        var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this));
+	
+	        _this.handleResumeToggle = function () {
+	            console.log('has been clicked!!');
+	            _this.setState({ resumeIsHidden: !_this.state.resumeIsHidden });
+	        };
+	
+	        _this.hideArrow = function () {
+	            if (window.innerHeight + window.scrollY > document.body.clientHeight) {
+	                document.getElementById('down-arrow').style.display = 'none';
+	            }
+	        };
+	
+	        _this.state = {
+	            resumeIsHidden: true
+	        };
+	        _this.handleResumeToggle = _this.handleResumeToggle.bind(_this);
+	        return _this;
 	    }
 	
-	    // _hideArrow = () => {
-	    //     if (window.innerHeight + window.scrollY > document.body.clientHeight) {
-	    //         document.getElementById('down-arrow').style.display='none';
-	    //     }
-	    // }
-	
-	
 	    _createClass(Main, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.hideArrow();
+	        }
+	
+	        //only works on refresh right now
+	
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
 	                { id: 'fullpage' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { id: 'zero' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { id: 'intro' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { id: 'name' },
+	                            _react2.default.createElement(
+	                                'p',
+	                                null,
+	                                'ANNIE J WON'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { id: 'title' },
+	                            _react2.default.createElement(
+	                                'p',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'em',
+	                                    null,
+	                                    'full stack software engineer'
+	                                )
+	                            )
+	                        )
+	                    )
+	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    { id: 'first', className: 'section' },
@@ -21594,13 +21646,6 @@
 	                            _react2.default.createElement('path', { d: 'M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z' }),
 	                            _react2.default.createElement('path', { d: 'M0-.75h24v24H0z', fill: 'none' })
 	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { id: 'btn' },
-	                        _react2.default.createElement(_FloatingActionButton2.default, { id: 'floatbtn', label: 'Secondary' }),
-	                        _react2.default.createElement(_FloatingActionButton2.default, { id: 'floatbtn', label: 'Secondary' }),
-	                        _react2.default.createElement(_FloatingActionButton2.default, { id: 'floatbtn', label: 'Secondary' })
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -21608,31 +21653,17 @@
 	                    { className: 'section', id: 'second' },
 	                    _react2.default.createElement(
 	                        'div',
-	                        null,
+	                        { id: 'thankdiv' },
 	                        _react2.default.createElement(
 	                            'p',
 	                            { id: 'thanks' },
-	                            'thanks for visiting my page'
+	                            'my resume can be viewed here'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { id: 'personaldiv' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'social', id: 'personal1' },
-	                            'resume'
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'social', id: 'personal2' },
-	                            'resume'
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'social', id: 'personal3' },
-	                            'resume'
-	                        )
+	                        _react2.default.createElement(_ResumeModal2.default, null)
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -21651,11 +21682,422 @@
 	    return Main;
 	}(_react.Component);
 	
+	// <div id='btn'>
+	//     <FloatingActionButton id='floatbtn' label="Secondary" />
+	//     <FloatingActionButton id='floatbtn' label="Secondary" />
+	//     <FloatingActionButton id='floatbtn' label="Secondary" />
+	// </div>
+	
+	
 	exports.default = Main;
 
 /***/ },
-/* 179 */,
-/* 180 */,
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+	
+	var _FloatingActionButton = __webpack_require__(180);
+	
+	var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _FloatingActionButton2.default;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _extends2 = __webpack_require__(181);
+	
+	var _extends3 = _interopRequireDefault(_extends2);
+	
+	var _objectWithoutProperties2 = __webpack_require__(219);
+	
+	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+	
+	var _getPrototypeOf = __webpack_require__(220);
+	
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+	
+	var _classCallCheck2 = __webpack_require__(225);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(226);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(230);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(265);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _simpleAssign = __webpack_require__(273);
+	
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _transitions = __webpack_require__(274);
+	
+	var _transitions2 = _interopRequireDefault(_transitions);
+	
+	var _colorManipulator = __webpack_require__(275);
+	
+	var _EnhancedButton = __webpack_require__(276);
+	
+	var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
+	
+	var _FontIcon = __webpack_require__(305);
+	
+	var _FontIcon2 = _interopRequireDefault(_FontIcon);
+	
+	var _Paper = __webpack_require__(307);
+	
+	var _Paper2 = _interopRequireDefault(_Paper);
+	
+	var _childUtils = __webpack_require__(277);
+	
+	var _warning = __webpack_require__(310);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	var _propTypes = __webpack_require__(309);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function getStyles(props, context) {
+	  var floatingActionButton = context.muiTheme.floatingActionButton;
+	
+	
+	  var backgroundColor = props.backgroundColor || floatingActionButton.color;
+	  var iconColor = floatingActionButton.iconColor;
+	
+	  if (props.disabled) {
+	    backgroundColor = props.disabledColor || floatingActionButton.disabledColor;
+	    iconColor = floatingActionButton.disabledTextColor;
+	  } else if (props.secondary) {
+	    backgroundColor = floatingActionButton.secondaryColor;
+	    iconColor = floatingActionButton.secondaryIconColor;
+	  }
+	
+	  return {
+	    root: {
+	      transition: _transitions2.default.easeOut(),
+	      display: 'inline-block',
+	      backgroundColor: 'transparent'
+	    },
+	    container: {
+	      backgroundColor: backgroundColor,
+	      transition: _transitions2.default.easeOut(),
+	      height: floatingActionButton.buttonSize,
+	      width: floatingActionButton.buttonSize,
+	      padding: 0,
+	      overflow: 'hidden',
+	      borderRadius: '50%',
+	      textAlign: 'center',
+	      verticalAlign: 'bottom'
+	    },
+	    containerWhenMini: {
+	      height: floatingActionButton.miniSize,
+	      width: floatingActionButton.miniSize
+	    },
+	    overlay: {
+	      transition: _transitions2.default.easeOut(),
+	      top: 0
+	    },
+	    overlayWhenHovered: {
+	      backgroundColor: (0, _colorManipulator.fade)(iconColor, 0.4)
+	    },
+	    icon: {
+	      height: floatingActionButton.buttonSize,
+	      lineHeight: floatingActionButton.buttonSize + 'px',
+	      fill: iconColor,
+	      color: iconColor
+	    },
+	    iconWhenMini: {
+	      height: floatingActionButton.miniSize,
+	      lineHeight: floatingActionButton.miniSize + 'px'
+	    }
+	  };
+	}
+	
+	var FloatingActionButton = function (_Component) {
+	  (0, _inherits3.default)(FloatingActionButton, _Component);
+	
+	  function FloatingActionButton() {
+	    var _ref;
+	
+	    var _temp, _this, _ret;
+	
+	    (0, _classCallCheck3.default)(this, FloatingActionButton);
+	
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FloatingActionButton.__proto__ || (0, _getPrototypeOf2.default)(FloatingActionButton)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+	      hovered: false,
+	      touch: false,
+	      zDepth: undefined
+	    }, _this.handleMouseDown = function (event) {
+	      // only listen to left clicks
+	      if (event.button === 0) {
+	        _this.setState({ zDepth: _this.props.zDepth + 1 });
+	      }
+	      if (_this.props.onMouseDown) _this.props.onMouseDown(event);
+	    }, _this.handleMouseUp = function (event) {
+	      _this.setState({ zDepth: _this.props.zDepth });
+	      if (_this.props.onMouseUp) {
+	        _this.props.onMouseUp(event);
+	      }
+	    }, _this.handleMouseLeave = function (event) {
+	      if (!_this.refs.container.isKeyboardFocused()) {
+	        _this.setState({ zDepth: _this.props.zDepth, hovered: false });
+	      }
+	      if (_this.props.onMouseLeave) {
+	        _this.props.onMouseLeave(event);
+	      }
+	    }, _this.handleMouseEnter = function (event) {
+	      if (!_this.refs.container.isKeyboardFocused() && !_this.state.touch) {
+	        _this.setState({ hovered: true });
+	      }
+	      if (_this.props.onMouseEnter) {
+	        _this.props.onMouseEnter(event);
+	      }
+	    }, _this.handleTouchStart = function (event) {
+	      _this.setState({
+	        touch: true,
+	        zDepth: _this.props.zDepth + 1
+	      });
+	      if (_this.props.onTouchStart) {
+	        _this.props.onTouchStart(event);
+	      }
+	    }, _this.handleTouchEnd = function (event) {
+	      _this.setState({
+	        touch: true,
+	        zDepth: _this.props.zDepth
+	      });
+	      if (_this.props.onTouchEnd) {
+	        _this.props.onTouchEnd(event);
+	      }
+	    }, _this.handleKeyboardFocus = function (event, keyboardFocused) {
+	      if (keyboardFocused && !_this.props.disabled) {
+	        _this.setState({ zDepth: _this.props.zDepth + 1 });
+	        _this.refs.overlay.style.backgroundColor = (0, _colorManipulator.fade)(getStyles(_this.props, _this.context).icon.color, 0.4);
+	      } else if (!_this.state.hovered) {
+	        _this.setState({ zDepth: _this.props.zDepth });
+	        _this.refs.overlay.style.backgroundColor = 'transparent';
+	      }
+	    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+	  }
+	
+	  (0, _createClass3.default)(FloatingActionButton, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.setState({
+	        zDepth: this.props.disabled ? 0 : this.props.zDepth
+	      });
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      process.env.NODE_ENV !== "production" ? (0, _warning2.default)(!this.props.iconClassName || !this.props.children, 'Material-UI: You have set both an iconClassName and a child icon. ' + 'It is recommended you use only one method when adding ' + 'icons to FloatingActionButtons.') : void 0;
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      var nextState = {};
+	
+	      if (nextProps.disabled !== this.props.disabled) {
+	        nextState.zDepth = nextProps.disabled ? 0 : this.props.zDepth;
+	      }
+	      if (nextProps.disabled) {
+	        nextState.hovered = false;
+	      }
+	
+	      this.setState(nextState);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props,
+	          backgroundColor = _props.backgroundColor,
+	          className = _props.className,
+	          childrenProp = _props.children,
+	          disabled = _props.disabled,
+	          mini = _props.mini,
+	          secondary = _props.secondary,
+	          iconStyle = _props.iconStyle,
+	          iconClassName = _props.iconClassName,
+	          zDepth = _props.zDepth,
+	          other = (0, _objectWithoutProperties3.default)(_props, ['backgroundColor', 'className', 'children', 'disabled', 'mini', 'secondary', 'iconStyle', 'iconClassName', 'zDepth']);
+	      var prepareStyles = this.context.muiTheme.prepareStyles;
+	
+	      var styles = getStyles(this.props, this.context);
+	
+	      var iconElement = void 0;
+	      if (iconClassName) {
+	        iconElement = _react2.default.createElement(_FontIcon2.default, {
+	          className: iconClassName,
+	          style: (0, _simpleAssign2.default)({}, styles.icon, mini && styles.iconWhenMini, iconStyle)
+	        });
+	      }
+	
+	      var children = void 0;
+	
+	      if (childrenProp) {
+	        children = (0, _childUtils.extendChildren)(childrenProp, function (child) {
+	          return {
+	            style: (0, _simpleAssign2.default)({}, styles.icon, mini && styles.iconWhenMini, iconStyle, child.props.style)
+	          };
+	        });
+	      }
+	
+	      var buttonEventHandlers = disabled ? null : {
+	        onMouseDown: this.handleMouseDown,
+	        onMouseUp: this.handleMouseUp,
+	        onMouseLeave: this.handleMouseLeave,
+	        onMouseEnter: this.handleMouseEnter,
+	        onTouchStart: this.handleTouchStart,
+	        onTouchEnd: this.handleTouchEnd,
+	        onKeyboardFocus: this.handleKeyboardFocus
+	      };
+	
+	      return _react2.default.createElement(
+	        _Paper2.default,
+	        {
+	          className: className,
+	          style: (0, _simpleAssign2.default)(styles.root, this.props.style),
+	          zDepth: this.state.zDepth,
+	          circle: true
+	        },
+	        _react2.default.createElement(
+	          _EnhancedButton2.default,
+	          (0, _extends3.default)({}, other, buttonEventHandlers, {
+	            ref: 'container',
+	            disabled: disabled,
+	            style: (0, _simpleAssign2.default)(styles.container, this.props.mini && styles.containerWhenMini, iconStyle),
+	            focusRippleColor: styles.icon.color,
+	            touchRippleColor: styles.icon.color
+	          }),
+	          _react2.default.createElement(
+	            'div',
+	            {
+	              ref: 'overlay',
+	              style: prepareStyles((0, _simpleAssign2.default)(styles.overlay, this.state.hovered && !this.props.disabled && styles.overlayWhenHovered))
+	            },
+	            iconElement,
+	            children
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	  return FloatingActionButton;
+	}(_react.Component);
+	
+	FloatingActionButton.defaultProps = {
+	  disabled: false,
+	  mini: false,
+	  secondary: false,
+	  zDepth: 2
+	};
+	FloatingActionButton.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+	process.env.NODE_ENV !== "production" ? FloatingActionButton.propTypes = {
+	  /**
+	   * This value will override the default background color for the button.
+	   * However it will not override the default disabled background color.
+	   * This has to be set separately using the disabledColor attribute.
+	   */
+	  backgroundColor: _react.PropTypes.string,
+	  /**
+	   * This is what displayed inside the floating action button; for example, a SVG Icon.
+	   */
+	  children: _react.PropTypes.node,
+	  /**
+	   * The css class name of the root element.
+	   */
+	  className: _react.PropTypes.string,
+	  /**
+	   * Disables the button if set to true.
+	   */
+	  disabled: _react.PropTypes.bool,
+	  /**
+	   * This value will override the default background color for the button when it is disabled.
+	   */
+	  disabledColor: _react.PropTypes.string,
+	  /**
+	   * The URL to link to when the button is clicked.
+	   */
+	  href: _react.PropTypes.string,
+	  /**
+	   * The icon within the FloatingActionButton is a FontIcon component.
+	   * This property is the classname of the icon to be displayed inside the button.
+	   * An alternative to adding an iconClassName would be to manually insert a
+	   * FontIcon component or custom SvgIcon component or as a child of FloatingActionButton.
+	   */
+	  iconClassName: _react.PropTypes.string,
+	  /**
+	   * This is the equivalent to iconClassName except that it is used for
+	   * overriding the inline-styles of the FontIcon component.
+	   */
+	  iconStyle: _react.PropTypes.object,
+	  /**
+	   * If true, the button will be a small floating action button.
+	   */
+	  mini: _react.PropTypes.bool,
+	  /** @ignore */
+	  onMouseDown: _react.PropTypes.func,
+	  /** @ignore */
+	  onMouseEnter: _react.PropTypes.func,
+	  /** @ignore */
+	  onMouseLeave: _react.PropTypes.func,
+	  /** @ignore */
+	  onMouseUp: _react.PropTypes.func,
+	  /** @ignore */
+	  onTouchEnd: _react.PropTypes.func,
+	  /** @ignore */
+	  onTouchStart: _react.PropTypes.func,
+	  /**
+	   * If true, the button will use the secondary button colors.
+	   */
+	  secondary: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object,
+	  /**
+	   * The zDepth of the underlying `Paper` component.
+	   */
+	  zDepth: _propTypes2.default.zDepth
+	} : void 0;
+	exports.default = FloatingActionButton;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
 /* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -23590,143 +24032,6 @@
 /* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.createChildFragment = createChildFragment;
-	exports.extendChildren = extendChildren;
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactAddonsCreateFragment = __webpack_require__(277);
-	
-	var _reactAddonsCreateFragment2 = _interopRequireDefault(_reactAddonsCreateFragment);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function createChildFragment(fragments) {
-	  var newFragments = {};
-	  var validChildrenCount = 0;
-	  var firstKey = void 0;
-	
-	  // Only create non-empty key fragments
-	  for (var key in fragments) {
-	    var currentChild = fragments[key];
-	
-	    if (currentChild) {
-	      if (validChildrenCount === 0) firstKey = key;
-	      newFragments[key] = currentChild;
-	      validChildrenCount++;
-	    }
-	  }
-	
-	  if (validChildrenCount === 0) return undefined;
-	  if (validChildrenCount === 1) return newFragments[firstKey];
-	  return (0, _reactAddonsCreateFragment2.default)(newFragments);
-	}
-	
-	function extendChildren(children, extendedProps, extendedChildren) {
-	  return _react2.default.Children.map(children, function (child) {
-	    if (!_react2.default.isValidElement(child)) {
-	      return child;
-	    }
-	
-	    var newProps = typeof extendedProps === 'function' ? extendedProps(child) : extendedProps;
-	
-	    var newChildren = typeof extendedChildren === 'function' ? extendedChildren(child) : extendedChildren ? extendedChildren : child.props.children;
-	
-	    return _react2.default.cloneElement(child, newProps, newChildren);
-	  });
-	}
-
-/***/ },
-/* 277 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(278).create;
-
-/***/ },
-/* 278 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2015-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 */
-	
-	'use strict';
-	
-	var _prodInvariant = __webpack_require__(7);
-	
-	var ReactChildren = __webpack_require__(5);
-	var ReactElement = __webpack_require__(9);
-	
-	var emptyFunction = __webpack_require__(12);
-	var invariant = __webpack_require__(8);
-	var warning = __webpack_require__(11);
-	
-	/**
-	 * We used to allow keyed objects to serve as a collection of ReactElements,
-	 * or nested sets. This allowed us a way to explicitly key a set or fragment of
-	 * components. This is now being replaced with an opaque data structure.
-	 * The upgrade path is to call React.addons.createFragment({ key: value }) to
-	 * create a keyed fragment. The resulting data structure is an array.
-	 */
-	
-	var numericPropertyRegex = /^\d+$/;
-	
-	var warnedAboutNumeric = false;
-	
-	var ReactFragment = {
-	  /**
-	   * Wrap a keyed object in an opaque proxy that warns you if you access any
-	   * of its properties.
-	   * See https://facebook.github.io/react/docs/create-fragment.html
-	   */
-	  create: function (object) {
-	    if (typeof object !== 'object' || !object || Array.isArray(object)) {
-	      process.env.NODE_ENV !== 'production' ? warning(false, 'React.addons.createFragment only accepts a single object. Got: %s', object) : void 0;
-	      return object;
-	    }
-	    if (ReactElement.isValidElement(object)) {
-	      process.env.NODE_ENV !== 'production' ? warning(false, 'React.addons.createFragment does not accept a ReactElement ' + 'without a wrapper object.') : void 0;
-	      return object;
-	    }
-	
-	    !(object.nodeType !== 1) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'React.addons.createFragment(...): Encountered an invalid child; DOM elements are not valid children of React components.') : _prodInvariant('0') : void 0;
-	
-	    var result = [];
-	
-	    for (var key in object) {
-	      if (process.env.NODE_ENV !== 'production') {
-	        if (!warnedAboutNumeric && numericPropertyRegex.test(key)) {
-	          process.env.NODE_ENV !== 'production' ? warning(false, 'React.addons.createFragment(...): Child objects should have ' + 'non-numeric keys so ordering is preserved.') : void 0;
-	          warnedAboutNumeric = true;
-	        }
-	      }
-	      ReactChildren.mapIntoWithKeyPrefixInternal(object[key], result, key, emptyFunction.thatReturnsArgument);
-	    }
-	
-	    return result;
-	  }
-	};
-	
-	module.exports = ReactFragment;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 279 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -23769,7 +24074,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _childUtils = __webpack_require__(276);
+	var _childUtils = __webpack_require__(277);
 	
 	var _events = __webpack_require__(280);
 	
@@ -24123,6 +24428,143 @@
 	  type: _react.PropTypes.string
 	} : void 0;
 	exports.default = EnhancedButton;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.createChildFragment = createChildFragment;
+	exports.extendChildren = extendChildren;
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactAddonsCreateFragment = __webpack_require__(278);
+	
+	var _reactAddonsCreateFragment2 = _interopRequireDefault(_reactAddonsCreateFragment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function createChildFragment(fragments) {
+	  var newFragments = {};
+	  var validChildrenCount = 0;
+	  var firstKey = void 0;
+	
+	  // Only create non-empty key fragments
+	  for (var key in fragments) {
+	    var currentChild = fragments[key];
+	
+	    if (currentChild) {
+	      if (validChildrenCount === 0) firstKey = key;
+	      newFragments[key] = currentChild;
+	      validChildrenCount++;
+	    }
+	  }
+	
+	  if (validChildrenCount === 0) return undefined;
+	  if (validChildrenCount === 1) return newFragments[firstKey];
+	  return (0, _reactAddonsCreateFragment2.default)(newFragments);
+	}
+	
+	function extendChildren(children, extendedProps, extendedChildren) {
+	  return _react2.default.Children.map(children, function (child) {
+	    if (!_react2.default.isValidElement(child)) {
+	      return child;
+	    }
+	
+	    var newProps = typeof extendedProps === 'function' ? extendedProps(child) : extendedProps;
+	
+	    var newChildren = typeof extendedChildren === 'function' ? extendedChildren(child) : extendedChildren ? extendedChildren : child.props.children;
+	
+	    return _react2.default.cloneElement(child, newProps, newChildren);
+	  });
+	}
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(279).create;
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2015-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 */
+	
+	'use strict';
+	
+	var _prodInvariant = __webpack_require__(7);
+	
+	var ReactChildren = __webpack_require__(5);
+	var ReactElement = __webpack_require__(9);
+	
+	var emptyFunction = __webpack_require__(12);
+	var invariant = __webpack_require__(8);
+	var warning = __webpack_require__(11);
+	
+	/**
+	 * We used to allow keyed objects to serve as a collection of ReactElements,
+	 * or nested sets. This allowed us a way to explicitly key a set or fragment of
+	 * components. This is now being replaced with an opaque data structure.
+	 * The upgrade path is to call React.addons.createFragment({ key: value }) to
+	 * create a keyed fragment. The resulting data structure is an array.
+	 */
+	
+	var numericPropertyRegex = /^\d+$/;
+	
+	var warnedAboutNumeric = false;
+	
+	var ReactFragment = {
+	  /**
+	   * Wrap a keyed object in an opaque proxy that warns you if you access any
+	   * of its properties.
+	   * See https://facebook.github.io/react/docs/create-fragment.html
+	   */
+	  create: function (object) {
+	    if (typeof object !== 'object' || !object || Array.isArray(object)) {
+	      process.env.NODE_ENV !== 'production' ? warning(false, 'React.addons.createFragment only accepts a single object. Got: %s', object) : void 0;
+	      return object;
+	    }
+	    if (ReactElement.isValidElement(object)) {
+	      process.env.NODE_ENV !== 'production' ? warning(false, 'React.addons.createFragment does not accept a ReactElement ' + 'without a wrapper object.') : void 0;
+	      return object;
+	    }
+	
+	    !(object.nodeType !== 1) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'React.addons.createFragment(...): Encountered an invalid child; DOM elements are not valid children of React components.') : _prodInvariant('0') : void 0;
+	
+	    var result = [];
+	
+	    for (var key in object) {
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (!warnedAboutNumeric && numericPropertyRegex.test(key)) {
+	          process.env.NODE_ENV !== 'production' ? warning(false, 'React.addons.createFragment(...): Child objects should have ' + 'non-numeric keys so ordering is preserved.') : void 0;
+	          warnedAboutNumeric = true;
+	        }
+	      }
+	      ReactChildren.mapIntoWithKeyPrefixInternal(object[key], result, key, emptyFunction.thatReturnsArgument);
+	    }
+	
+	    return result;
+	  }
+	};
+	
+	module.exports = ReactFragment;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
@@ -26021,13 +26463,13 @@
 	});
 	exports.default = undefined;
 	
-	var _Paper = __webpack_require__(306);
+	var _FontIcon = __webpack_require__(306);
 	
-	var _Paper2 = _interopRequireDefault(_Paper);
+	var _FontIcon2 = _interopRequireDefault(_FontIcon);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = _Paper2.default;
+	exports.default = _FontIcon2.default;
 
 /***/ },
 /* 306 */
@@ -26075,7 +26517,186 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(307);
+	var _transitions = __webpack_require__(274);
+	
+	var _transitions2 = _interopRequireDefault(_transitions);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function getStyles(props, context, state) {
+	  var color = props.color,
+	      hoverColor = props.hoverColor;
+	  var baseTheme = context.muiTheme.baseTheme;
+	
+	  var offColor = color || baseTheme.palette.textColor;
+	  var onColor = hoverColor || offColor;
+	
+	  return {
+	    root: {
+	      color: state.hovered ? onColor : offColor,
+	      position: 'relative',
+	      fontSize: baseTheme.spacing.iconSize,
+	      display: 'inline-block',
+	      userSelect: 'none',
+	      transition: _transitions2.default.easeOut()
+	    }
+	  };
+	}
+	
+	var FontIcon = function (_Component) {
+	  (0, _inherits3.default)(FontIcon, _Component);
+	
+	  function FontIcon() {
+	    var _ref;
+	
+	    var _temp, _this, _ret;
+	
+	    (0, _classCallCheck3.default)(this, FontIcon);
+	
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FontIcon.__proto__ || (0, _getPrototypeOf2.default)(FontIcon)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+	      hovered: false
+	    }, _this.handleMouseLeave = function (event) {
+	      // hover is needed only when a hoverColor is defined
+	      if (_this.props.hoverColor !== undefined) {
+	        _this.setState({ hovered: false });
+	      }
+	      if (_this.props.onMouseLeave) {
+	        _this.props.onMouseLeave(event);
+	      }
+	    }, _this.handleMouseEnter = function (event) {
+	      // hover is needed only when a hoverColor is defined
+	      if (_this.props.hoverColor !== undefined) {
+	        _this.setState({ hovered: true });
+	      }
+	      if (_this.props.onMouseEnter) {
+	        _this.props.onMouseEnter(event);
+	      }
+	    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+	  }
+	
+	  (0, _createClass3.default)(FontIcon, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props,
+	          hoverColor = _props.hoverColor,
+	          onMouseLeave = _props.onMouseLeave,
+	          onMouseEnter = _props.onMouseEnter,
+	          style = _props.style,
+	          other = (0, _objectWithoutProperties3.default)(_props, ['hoverColor', 'onMouseLeave', 'onMouseEnter', 'style']);
+	      var prepareStyles = this.context.muiTheme.prepareStyles;
+	
+	      var styles = getStyles(this.props, this.context, this.state);
+	
+	      return _react2.default.createElement('span', (0, _extends3.default)({}, other, {
+	        onMouseLeave: this.handleMouseLeave,
+	        onMouseEnter: this.handleMouseEnter,
+	        style: prepareStyles((0, _simpleAssign2.default)(styles.root, style))
+	      }));
+	    }
+	  }]);
+	  return FontIcon;
+	}(_react.Component);
+	
+	FontIcon.muiName = 'FontIcon';
+	FontIcon.defaultProps = {
+	  onMouseEnter: function onMouseEnter() {},
+	  onMouseLeave: function onMouseLeave() {}
+	};
+	FontIcon.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+	process.env.NODE_ENV !== "production" ? FontIcon.propTypes = {
+	  /**
+	   * This is the font color of the font icon. If not specified,
+	   * this component will default to muiTheme.palette.textColor.
+	   */
+	  color: _react.PropTypes.string,
+	  /**
+	   * This is the icon color when the mouse hovers over the icon.
+	   */
+	  hoverColor: _react.PropTypes.string,
+	  /** @ignore */
+	  onMouseEnter: _react.PropTypes.func,
+	  /** @ignore */
+	  onMouseLeave: _react.PropTypes.func,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object
+	} : void 0;
+	exports.default = FontIcon;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 307 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+	
+	var _Paper = __webpack_require__(308);
+	
+	var _Paper2 = _interopRequireDefault(_Paper);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _Paper2.default;
+
+/***/ },
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _extends2 = __webpack_require__(181);
+	
+	var _extends3 = _interopRequireDefault(_extends2);
+	
+	var _objectWithoutProperties2 = __webpack_require__(219);
+	
+	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+	
+	var _getPrototypeOf = __webpack_require__(220);
+	
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+	
+	var _classCallCheck2 = __webpack_require__(225);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(226);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(230);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(265);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _simpleAssign = __webpack_require__(273);
+	
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(309);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
@@ -26182,7 +26803,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 307 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26218,7 +26839,415 @@
 	};
 
 /***/ },
-/* 308 */
+/* 310 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2014-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+	
+	'use strict';
+	
+	/**
+	 * Similar to invariant but only logs a warning if the condition is not met.
+	 * This can be used to log issues in development environments in critical
+	 * paths. Removing the logging code for production environments will keep the
+	 * same logic and follow the same code paths.
+	 */
+	
+	var warning = function() {};
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  warning = function(condition, format, args) {
+	    var len = arguments.length;
+	    args = new Array(len > 2 ? len - 2 : 0);
+	    for (var key = 2; key < len; key++) {
+	      args[key - 2] = arguments[key];
+	    }
+	    if (format === undefined) {
+	      throw new Error(
+	        '`warning(condition, format, ...args)` requires a warning ' +
+	        'message argument'
+	      );
+	    }
+	
+	    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
+	      throw new Error(
+	        'The warning format should be able to uniquely identify this ' +
+	        'warning. Please, use a more descriptive format than: ' + format
+	      );
+	    }
+	
+	    if (!condition) {
+	      var argIndex = 0;
+	      var message = 'Warning: ' +
+	        format.replace(/%s/g, function() {
+	          return args[argIndex++];
+	        });
+	      if (typeof console !== 'undefined') {
+	        console.error(message);
+	      }
+	      try {
+	        // This error was thrown as a convenience so that you can use this stack
+	        // to find the callsite that caused this warning to fire.
+	        throw new Error(message);
+	      } catch(x) {}
+	    }
+	  };
+	}
+	
+	module.exports = warning;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 311 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ResumeModal = function (_Component) {
+	    _inherits(ResumeModal, _Component);
+	
+	    function ResumeModal() {
+	        _classCallCheck(this, ResumeModal);
+	
+	        var _this = _possibleConstructorReturn(this, (ResumeModal.__proto__ || Object.getPrototypeOf(ResumeModal)).call(this));
+	
+	        _this.toggle = function () {
+	            _this.setState({ open: !_this.state.open });
+	        };
+	
+	        return _this;
+	    }
+	
+	    _createClass(ResumeModal, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "container" },
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "#myModal", className: "btn btn-primary", "data-toggle": "modal" },
+	                        "Launch demo modal"
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "modal fade", id: "myModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "myModalLabel", "aria-hidden": "true" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "modal-dialog" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "modal-content", id: "contentpage" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "modal-header" },
+	                                    _react2.default.createElement(
+	                                        "button",
+	                                        { type: "button", className: "close", "data-dismiss": "modal", "aria-hidden": "true" },
+	                                        "x"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "h4",
+	                                        { className: "modal-title", id: "nameheader" },
+	                                        "annie j won"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "modal-body" },
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            "strong",
+	                                            null,
+	                                            "software engineer"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "+16263202318 | Los Angeles, CA"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            "a",
+	                                            null,
+	                                            "anniejiwon@gmail.com"
+	                                        ),
+	                                        " | ",
+	                                        _react2.default.createElement(
+	                                            "a",
+	                                            null,
+	                                            "github.com/anniejiwon"
+	                                        ),
+	                                        " | ",
+	                                        _react2.default.createElement(
+	                                            "a",
+	                                            null,
+	                                            "linkedin.com/in/anniejiwon"
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "modal-body" },
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            "strong",
+	                                            null,
+	                                            "technologies"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "++ javascript, react, redux, express, sequelize, node, html, css, es6, three, git, github, photoshop, indesign, postgresSQL"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "+ ruby, python, swift, xcode, bootstrap, jasmine, mocha, chai, socket.io, oauth, firebase, jquery"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "modal-body" },
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            "strong",
+	                                            null,
+	                                            "projects"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "2016 | full stack developer | ",
+	                                        _react2.default.createElement(
+	                                            "a",
+	                                            null,
+	                                            "pgb-vsu.club"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "capstone project at full stack academy"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "tech stack | react, redux, express, three, webgl, tone, react-three"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "modal-body" },
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "2016 | full stack developer | ",
+	                                        _react2.default.createElement(
+	                                            "a",
+	                                            null,
+	                                            "github.com/anniejiwon/castleShopper"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "e-commerce store"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "tech stack | react, redux, express, sequelize, oauth"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "modal-body" },
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            "strong",
+	                                            null,
+	                                            "education"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "2016 | fullstack academy of code"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "17 week, full-time immersive developer bootcamp with a focus on full stack javascript web development"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "modal-body" },
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "2007 | university of california, riverside"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "b.a. art history"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "modal-body" },
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            "strong",
+	                                            null,
+	                                            "professional experience"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "2012-2016 | venus la | venus ny"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "venus | director of operations"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "managing the teams in both new york and los angeles offices"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "executing consignment and loan agreements with museums, galleries, and private collections"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "close coordination and management of numerous vendors e.g. art handlers, shippers, riggers, insurance agents, accounting team"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "working closely with CFO, CEO and other directors for annual program"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "publication production"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "sales"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "modal-body" },
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "2010-2012 | freelance art consultant"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "acquisition of over 200 pieces of art at various auction houses and galleries"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "fully curated of homes in orange county, westchester, and manhattan "
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "extensive research and negotiations for specific works of art for clients"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "executing loan and consignment agreements with museums and  galleries"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "modal-footer", id: "modalfooter" },
+	                                    _react2.default.createElement(
+	                                        "button",
+	                                        { type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+	                                        "download"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "button",
+	                                        { type: "button", className: "btn btn-primary" },
+	                                        "email a copy"
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return ResumeModal;
+	}(_react.Component);
+	
+	exports.default = ResumeModal;
+
+/***/ },
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -26249,7 +27278,7 @@
 	
 	var _react = __webpack_require__(1);
 	
-	var _getMuiTheme = __webpack_require__(309);
+	var _getMuiTheme = __webpack_require__(313);
 	
 	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 	
@@ -26290,7 +27319,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 309 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26305,41 +27334,41 @@
 	
 	exports.default = getMuiTheme;
 	
-	var _lodash = __webpack_require__(310);
+	var _lodash = __webpack_require__(314);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
 	var _colorManipulator = __webpack_require__(275);
 	
-	var _lightBaseTheme = __webpack_require__(312);
+	var _lightBaseTheme = __webpack_require__(316);
 	
 	var _lightBaseTheme2 = _interopRequireDefault(_lightBaseTheme);
 	
-	var _zIndex = __webpack_require__(315);
+	var _zIndex = __webpack_require__(319);
 	
 	var _zIndex2 = _interopRequireDefault(_zIndex);
 	
-	var _autoprefixer = __webpack_require__(316);
+	var _autoprefixer = __webpack_require__(320);
 	
 	var _autoprefixer2 = _interopRequireDefault(_autoprefixer);
 	
-	var _callOnce = __webpack_require__(353);
+	var _callOnce = __webpack_require__(356);
 	
 	var _callOnce2 = _interopRequireDefault(_callOnce);
 	
-	var _rtl = __webpack_require__(354);
+	var _rtl = __webpack_require__(357);
 	
 	var _rtl2 = _interopRequireDefault(_rtl);
 	
-	var _compose = __webpack_require__(358);
+	var _compose = __webpack_require__(361);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
-	var _typography = __webpack_require__(359);
+	var _typography = __webpack_require__(362);
 	
 	var _typography2 = _interopRequireDefault(_typography);
 	
-	var _colors = __webpack_require__(313);
+	var _colors = __webpack_require__(317);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -26674,7 +27703,7 @@
 	}
 
 /***/ },
-/* 310 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -28885,10 +29914,10 @@
 	
 	module.exports = merge;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(311)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(315)(module)))
 
 /***/ },
-/* 311 */
+/* 315 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -28904,7 +29933,7 @@
 
 
 /***/ },
-/* 312 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28913,11 +29942,11 @@
 	  value: true
 	});
 	
-	var _colors = __webpack_require__(313);
+	var _colors = __webpack_require__(317);
 	
 	var _colorManipulator = __webpack_require__(275);
 	
-	var _spacing = __webpack_require__(314);
+	var _spacing = __webpack_require__(318);
 	
 	var _spacing2 = _interopRequireDefault(_spacing);
 	
@@ -28953,7 +29982,7 @@
 	    */
 
 /***/ },
-/* 313 */
+/* 317 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29248,7 +30277,7 @@
 	var lightWhite = exports.lightWhite = 'rgba(255, 255, 255, 0.54)';
 
 /***/ },
-/* 314 */
+/* 318 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29272,7 +30301,7 @@
 	};
 
 /***/ },
-/* 315 */
+/* 319 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29294,7 +30323,7 @@
 	};
 
 /***/ },
-/* 316 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -29360,11 +30389,11 @@
 	  }
 	};
 	
-	var _inlineStylePrefixer = __webpack_require__(317);
+	var _inlineStylePrefixer = __webpack_require__(321);
 	
 	var _inlineStylePrefixer2 = _interopRequireDefault(_inlineStylePrefixer);
 	
-	var _warning = __webpack_require__(352);
+	var _warning = __webpack_require__(310);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -29374,7 +30403,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 317 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29387,67 +30416,67 @@
 	// special flexbox specifications
 	
 	
-	var _prefixAll2 = __webpack_require__(318);
+	var _prefixAll2 = __webpack_require__(322);
 	
 	var _prefixAll3 = _interopRequireDefault(_prefixAll2);
 	
-	var _getBrowserInformation = __webpack_require__(335);
+	var _getBrowserInformation = __webpack_require__(339);
 	
 	var _getBrowserInformation2 = _interopRequireDefault(_getBrowserInformation);
 	
-	var _getPrefixedKeyframes = __webpack_require__(338);
+	var _getPrefixedKeyframes = __webpack_require__(342);
 	
 	var _getPrefixedKeyframes2 = _interopRequireDefault(_getPrefixedKeyframes);
 	
-	var _capitalizeString = __webpack_require__(320);
+	var _capitalizeString = __webpack_require__(324);
 	
 	var _capitalizeString2 = _interopRequireDefault(_capitalizeString);
 	
-	var _sortPrefixedStyle = __webpack_require__(321);
+	var _sortPrefixedStyle = __webpack_require__(325);
 	
 	var _sortPrefixedStyle2 = _interopRequireDefault(_sortPrefixedStyle);
 	
-	var _prefixProps = __webpack_require__(339);
+	var _prefixProps = __webpack_require__(343);
 	
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 	
-	var _position = __webpack_require__(340);
+	var _position = __webpack_require__(344);
 	
 	var _position2 = _interopRequireDefault(_position);
 	
-	var _calc = __webpack_require__(342);
+	var _calc = __webpack_require__(346);
 	
 	var _calc2 = _interopRequireDefault(_calc);
 	
-	var _zoomCursor = __webpack_require__(343);
+	var _zoomCursor = __webpack_require__(347);
 	
 	var _zoomCursor2 = _interopRequireDefault(_zoomCursor);
 	
-	var _grabCursor = __webpack_require__(344);
+	var _grabCursor = __webpack_require__(348);
 	
 	var _grabCursor2 = _interopRequireDefault(_grabCursor);
 	
-	var _flex = __webpack_require__(345);
+	var _flex = __webpack_require__(349);
 	
 	var _flex2 = _interopRequireDefault(_flex);
 	
-	var _sizing = __webpack_require__(346);
+	var _sizing = __webpack_require__(350);
 	
 	var _sizing2 = _interopRequireDefault(_sizing);
 	
-	var _gradient = __webpack_require__(347);
+	var _gradient = __webpack_require__(351);
 	
 	var _gradient2 = _interopRequireDefault(_gradient);
 	
-	var _transition = __webpack_require__(348);
+	var _transition = __webpack_require__(352);
 	
 	var _transition2 = _interopRequireDefault(_transition);
 	
-	var _flexboxIE = __webpack_require__(350);
+	var _flexboxIE = __webpack_require__(354);
 	
 	var _flexboxIE2 = _interopRequireDefault(_flexboxIE);
 	
-	var _flexboxOld = __webpack_require__(351);
+	var _flexboxOld = __webpack_require__(355);
 	
 	var _flexboxOld2 = _interopRequireDefault(_flexboxOld);
 	
@@ -29608,7 +30637,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 318 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29618,51 +30647,51 @@
 	});
 	exports.default = prefixAll;
 	
-	var _prefixProps = __webpack_require__(319);
+	var _prefixProps = __webpack_require__(323);
 	
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 	
-	var _capitalizeString = __webpack_require__(320);
+	var _capitalizeString = __webpack_require__(324);
 	
 	var _capitalizeString2 = _interopRequireDefault(_capitalizeString);
 	
-	var _sortPrefixedStyle = __webpack_require__(321);
+	var _sortPrefixedStyle = __webpack_require__(325);
 	
 	var _sortPrefixedStyle2 = _interopRequireDefault(_sortPrefixedStyle);
 	
-	var _position = __webpack_require__(323);
+	var _position = __webpack_require__(327);
 	
 	var _position2 = _interopRequireDefault(_position);
 	
-	var _calc = __webpack_require__(324);
+	var _calc = __webpack_require__(328);
 	
 	var _calc2 = _interopRequireDefault(_calc);
 	
-	var _cursor = __webpack_require__(327);
+	var _cursor = __webpack_require__(331);
 	
 	var _cursor2 = _interopRequireDefault(_cursor);
 	
-	var _flex = __webpack_require__(328);
+	var _flex = __webpack_require__(332);
 	
 	var _flex2 = _interopRequireDefault(_flex);
 	
-	var _sizing = __webpack_require__(329);
+	var _sizing = __webpack_require__(333);
 	
 	var _sizing2 = _interopRequireDefault(_sizing);
 	
-	var _gradient = __webpack_require__(330);
+	var _gradient = __webpack_require__(334);
 	
 	var _gradient2 = _interopRequireDefault(_gradient);
 	
-	var _transition = __webpack_require__(331);
+	var _transition = __webpack_require__(335);
 	
 	var _transition2 = _interopRequireDefault(_transition);
 	
-	var _flexboxIE = __webpack_require__(333);
+	var _flexboxIE = __webpack_require__(337);
 	
 	var _flexboxIE2 = _interopRequireDefault(_flexboxIE);
 	
-	var _flexboxOld = __webpack_require__(334);
+	var _flexboxOld = __webpack_require__(338);
 	
 	var _flexboxOld2 = _interopRequireDefault(_flexboxOld);
 	
@@ -29728,7 +30757,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 319 */
+/* 323 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29740,7 +30769,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 320 */
+/* 324 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29757,7 +30786,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 321 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29767,7 +30796,7 @@
 	});
 	exports.default = sortPrefixedStyle;
 	
-	var _isPrefixedProperty = __webpack_require__(322);
+	var _isPrefixedProperty = __webpack_require__(326);
 	
 	var _isPrefixedProperty2 = _interopRequireDefault(_isPrefixedProperty);
 	
@@ -29789,7 +30818,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 322 */
+/* 326 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29805,7 +30834,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 323 */
+/* 327 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29822,7 +30851,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 324 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29832,11 +30861,11 @@
 	});
 	exports.default = calc;
 	
-	var _joinPrefixedValue = __webpack_require__(325);
+	var _joinPrefixedValue = __webpack_require__(329);
 	
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 	
-	var _isPrefixedValue = __webpack_require__(326);
+	var _isPrefixedValue = __webpack_require__(330);
 	
 	var _isPrefixedValue2 = _interopRequireDefault(_isPrefixedValue);
 	
@@ -29852,7 +30881,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 325 */
+/* 329 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29877,7 +30906,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 326 */
+/* 330 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29895,7 +30924,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 327 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29905,7 +30934,7 @@
 	});
 	exports.default = cursor;
 	
-	var _joinPrefixedValue = __webpack_require__(325);
+	var _joinPrefixedValue = __webpack_require__(329);
 	
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 	
@@ -29926,7 +30955,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 328 */
+/* 332 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29947,7 +30976,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 329 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29957,7 +30986,7 @@
 	});
 	exports.default = sizing;
 	
-	var _joinPrefixedValue = __webpack_require__(325);
+	var _joinPrefixedValue = __webpack_require__(329);
 	
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 	
@@ -29988,7 +31017,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 330 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29998,11 +31027,11 @@
 	});
 	exports.default = gradient;
 	
-	var _joinPrefixedValue = __webpack_require__(325);
+	var _joinPrefixedValue = __webpack_require__(329);
 	
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 	
-	var _isPrefixedValue = __webpack_require__(326);
+	var _isPrefixedValue = __webpack_require__(330);
 	
 	var _isPrefixedValue2 = _interopRequireDefault(_isPrefixedValue);
 	
@@ -30018,7 +31047,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 331 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30028,19 +31057,19 @@
 	});
 	exports.default = transition;
 	
-	var _hyphenateStyleName = __webpack_require__(332);
+	var _hyphenateStyleName = __webpack_require__(336);
 	
 	var _hyphenateStyleName2 = _interopRequireDefault(_hyphenateStyleName);
 	
-	var _capitalizeString = __webpack_require__(320);
+	var _capitalizeString = __webpack_require__(324);
 	
 	var _capitalizeString2 = _interopRequireDefault(_capitalizeString);
 	
-	var _isPrefixedValue = __webpack_require__(326);
+	var _isPrefixedValue = __webpack_require__(330);
 	
 	var _isPrefixedValue2 = _interopRequireDefault(_isPrefixedValue);
 	
-	var _prefixProps = __webpack_require__(319);
+	var _prefixProps = __webpack_require__(323);
 	
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 	
@@ -30105,7 +31134,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 332 */
+/* 336 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30127,7 +31156,7 @@
 
 
 /***/ },
-/* 333 */
+/* 337 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30164,7 +31193,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 334 */
+/* 338 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30205,7 +31234,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 335 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30214,7 +31243,7 @@
 	  value: true
 	});
 	
-	var _bowser = __webpack_require__(336);
+	var _bowser = __webpack_require__(340);
 	
 	var _bowser2 = _interopRequireDefault(_bowser);
 	
@@ -30318,7 +31347,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 336 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -30329,7 +31358,7 @@
 	
 	!function (root, name, definition) {
 	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
-	  else if (true) __webpack_require__(337)(name, definition)
+	  else if (true) __webpack_require__(341)(name, definition)
 	  else root[name] = definition()
 	}(this, 'bowser', function () {
 	  /**
@@ -30904,14 +31933,14 @@
 
 
 /***/ },
-/* 337 */
+/* 341 */
 /***/ function(module, exports) {
 
 	module.exports = function() { throw new Error("define cannot be used indirect"); };
 
 
 /***/ },
-/* 338 */
+/* 342 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30936,7 +31965,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 339 */
+/* 343 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30948,7 +31977,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 340 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30958,7 +31987,7 @@
 	});
 	exports.default = position;
 	
-	var _getPrefixedValue = __webpack_require__(341);
+	var _getPrefixedValue = __webpack_require__(345);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -30980,7 +32009,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 341 */
+/* 345 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30996,7 +32025,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 342 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31006,7 +32035,7 @@
 	});
 	exports.default = calc;
 	
-	var _getPrefixedValue = __webpack_require__(341);
+	var _getPrefixedValue = __webpack_require__(345);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -31030,7 +32059,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 343 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31040,7 +32069,7 @@
 	});
 	exports.default = zoomCursor;
 	
-	var _getPrefixedValue = __webpack_require__(341);
+	var _getPrefixedValue = __webpack_require__(345);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -31066,7 +32095,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 344 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31076,7 +32105,7 @@
 	});
 	exports.default = grabCursor;
 	
-	var _getPrefixedValue = __webpack_require__(341);
+	var _getPrefixedValue = __webpack_require__(345);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -31101,7 +32130,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 345 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31111,7 +32140,7 @@
 	});
 	exports.default = flex;
 	
-	var _getPrefixedValue = __webpack_require__(341);
+	var _getPrefixedValue = __webpack_require__(345);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -31137,7 +32166,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 346 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31147,7 +32176,7 @@
 	});
 	exports.default = sizing;
 	
-	var _getPrefixedValue = __webpack_require__(341);
+	var _getPrefixedValue = __webpack_require__(345);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -31187,7 +32216,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 347 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31197,7 +32226,7 @@
 	});
 	exports.default = gradient;
 	
-	var _getPrefixedValue = __webpack_require__(341);
+	var _getPrefixedValue = __webpack_require__(345);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -31223,7 +32252,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 348 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31236,11 +32265,11 @@
 	
 	exports.default = transition;
 	
-	var _hyphenateStyleName = __webpack_require__(332);
+	var _hyphenateStyleName = __webpack_require__(336);
 	
 	var _hyphenateStyleName2 = _interopRequireDefault(_hyphenateStyleName);
 	
-	var _unprefixProperty = __webpack_require__(349);
+	var _unprefixProperty = __webpack_require__(353);
 	
 	var _unprefixProperty2 = _interopRequireDefault(_unprefixProperty);
 	
@@ -31289,7 +32318,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 349 */
+/* 353 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31306,7 +32335,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 350 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31316,7 +32345,7 @@
 	});
 	exports.default = flexboxIE;
 	
-	var _getPrefixedValue = __webpack_require__(341);
+	var _getPrefixedValue = __webpack_require__(345);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -31370,7 +32399,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 351 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31380,7 +32409,7 @@
 	});
 	exports.default = flexboxOld;
 	
-	var _getPrefixedValue = __webpack_require__(341);
+	var _getPrefixedValue = __webpack_require__(345);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -31441,74 +32470,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 352 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2014-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-	
-	'use strict';
-	
-	/**
-	 * Similar to invariant but only logs a warning if the condition is not met.
-	 * This can be used to log issues in development environments in critical
-	 * paths. Removing the logging code for production environments will keep the
-	 * same logic and follow the same code paths.
-	 */
-	
-	var warning = function() {};
-	
-	if (process.env.NODE_ENV !== 'production') {
-	  warning = function(condition, format, args) {
-	    var len = arguments.length;
-	    args = new Array(len > 2 ? len - 2 : 0);
-	    for (var key = 2; key < len; key++) {
-	      args[key - 2] = arguments[key];
-	    }
-	    if (format === undefined) {
-	      throw new Error(
-	        '`warning(condition, format, ...args)` requires a warning ' +
-	        'message argument'
-	      );
-	    }
-	
-	    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
-	      throw new Error(
-	        'The warning format should be able to uniquely identify this ' +
-	        'warning. Please, use a more descriptive format than: ' + format
-	      );
-	    }
-	
-	    if (!condition) {
-	      var argIndex = 0;
-	      var message = 'Warning: ' +
-	        format.replace(/%s/g, function() {
-	          return args[argIndex++];
-	        });
-	      if (typeof console !== 'undefined') {
-	        console.error(message);
-	      }
-	      try {
-	        // This error was thrown as a convenience so that you can use this stack
-	        // to find the callsite that caused this warning to fire.
-	        throw new Error(message);
-	      } catch(x) {}
-	    }
-	  };
-	}
-	
-	module.exports = warning;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 353 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -31518,7 +32480,7 @@
 	});
 	exports.default = callOnce;
 	
-	var _warning = __webpack_require__(352);
+	var _warning = __webpack_require__(310);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -31540,7 +32502,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 354 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31549,7 +32511,7 @@
 	  value: true
 	});
 	
-	var _keys = __webpack_require__(355);
+	var _keys = __webpack_require__(358);
 	
 	var _keys2 = _interopRequireDefault(_keys);
 	
@@ -31642,20 +32604,20 @@
 	}
 
 /***/ },
-/* 355 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(356), __esModule: true };
+	module.exports = { "default": __webpack_require__(359), __esModule: true };
 
 /***/ },
-/* 356 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(357);
+	__webpack_require__(360);
 	module.exports = __webpack_require__(187).Object.keys;
 
 /***/ },
-/* 357 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.14 Object.keys(O)
@@ -31669,7 +32631,7 @@
 	});
 
 /***/ },
-/* 358 */
+/* 361 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -31699,7 +32661,7 @@
 	}
 
 /***/ },
-/* 359 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31712,7 +32674,7 @@
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 	
-	var _colors = __webpack_require__(313);
+	var _colors = __webpack_require__(317);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31739,11 +32701,11 @@
 	exports.default = new Typography();
 
 /***/ },
-/* 360 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(8);
-	var defaultClickRejectionStrategy = __webpack_require__(361);
+	var defaultClickRejectionStrategy = __webpack_require__(364);
 	
 	var alreadyInjected = false;
 	
@@ -31765,14 +32727,14 @@
 	  alreadyInjected = true;
 	
 	  __webpack_require__(42).injection.injectEventPluginsByName({
-	    'TapEventPlugin':       __webpack_require__(362)(shouldRejectClick)
+	    'TapEventPlugin':       __webpack_require__(365)(shouldRejectClick)
 	  });
 	};
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 361 */
+/* 364 */
 /***/ function(module, exports) {
 
 	module.exports = function(lastTouchEvent, clickTimestamp) {
@@ -31783,7 +32745,7 @@
 
 
 /***/ },
-/* 362 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31807,14 +32769,14 @@
 	
 	"use strict";
 	
-	var EventConstants = __webpack_require__(363);
+	var EventConstants = __webpack_require__(366);
 	var EventPluginUtils = __webpack_require__(44);
 	var EventPropagators = __webpack_require__(41);
 	var SyntheticUIEvent = __webpack_require__(75);
-	var TouchEventUtils = __webpack_require__(364);
+	var TouchEventUtils = __webpack_require__(367);
 	var ViewportMetrics = __webpack_require__(76);
 	
-	var keyOf = __webpack_require__(365);
+	var keyOf = __webpack_require__(368);
 	var topLevelTypes = EventConstants.topLevelTypes;
 	
 	var isStartish = EventPluginUtils.isStartish;
@@ -31960,7 +32922,7 @@
 
 
 /***/ },
-/* 363 */
+/* 366 */
 /***/ function(module, exports) {
 
 	/**
@@ -32056,7 +33018,7 @@
 	module.exports = EventConstants;
 
 /***/ },
-/* 364 */
+/* 367 */
 /***/ function(module, exports) {
 
 	/**
@@ -32104,7 +33066,7 @@
 
 
 /***/ },
-/* 365 */
+/* 368 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32141,591 +33103,6 @@
 	};
 	
 	module.exports = keyOf;
-
-/***/ },
-/* 366 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = undefined;
-	
-	var _FloatingActionButton = __webpack_require__(367);
-	
-	var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _FloatingActionButton2.default;
-
-/***/ },
-/* 367 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _extends2 = __webpack_require__(181);
-	
-	var _extends3 = _interopRequireDefault(_extends2);
-	
-	var _objectWithoutProperties2 = __webpack_require__(219);
-	
-	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
-	
-	var _getPrototypeOf = __webpack_require__(220);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(225);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(226);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(230);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(265);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _simpleAssign = __webpack_require__(273);
-	
-	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _transitions = __webpack_require__(274);
-	
-	var _transitions2 = _interopRequireDefault(_transitions);
-	
-	var _colorManipulator = __webpack_require__(275);
-	
-	var _EnhancedButton = __webpack_require__(279);
-	
-	var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
-	
-	var _FontIcon = __webpack_require__(368);
-	
-	var _FontIcon2 = _interopRequireDefault(_FontIcon);
-	
-	var _Paper = __webpack_require__(305);
-	
-	var _Paper2 = _interopRequireDefault(_Paper);
-	
-	var _childUtils = __webpack_require__(276);
-	
-	var _warning = __webpack_require__(352);
-	
-	var _warning2 = _interopRequireDefault(_warning);
-	
-	var _propTypes = __webpack_require__(307);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function getStyles(props, context) {
-	  var floatingActionButton = context.muiTheme.floatingActionButton;
-	
-	
-	  var backgroundColor = props.backgroundColor || floatingActionButton.color;
-	  var iconColor = floatingActionButton.iconColor;
-	
-	  if (props.disabled) {
-	    backgroundColor = props.disabledColor || floatingActionButton.disabledColor;
-	    iconColor = floatingActionButton.disabledTextColor;
-	  } else if (props.secondary) {
-	    backgroundColor = floatingActionButton.secondaryColor;
-	    iconColor = floatingActionButton.secondaryIconColor;
-	  }
-	
-	  return {
-	    root: {
-	      transition: _transitions2.default.easeOut(),
-	      display: 'inline-block',
-	      backgroundColor: 'transparent'
-	    },
-	    container: {
-	      backgroundColor: backgroundColor,
-	      transition: _transitions2.default.easeOut(),
-	      height: floatingActionButton.buttonSize,
-	      width: floatingActionButton.buttonSize,
-	      padding: 0,
-	      overflow: 'hidden',
-	      borderRadius: '50%',
-	      textAlign: 'center',
-	      verticalAlign: 'bottom'
-	    },
-	    containerWhenMini: {
-	      height: floatingActionButton.miniSize,
-	      width: floatingActionButton.miniSize
-	    },
-	    overlay: {
-	      transition: _transitions2.default.easeOut(),
-	      top: 0
-	    },
-	    overlayWhenHovered: {
-	      backgroundColor: (0, _colorManipulator.fade)(iconColor, 0.4)
-	    },
-	    icon: {
-	      height: floatingActionButton.buttonSize,
-	      lineHeight: floatingActionButton.buttonSize + 'px',
-	      fill: iconColor,
-	      color: iconColor
-	    },
-	    iconWhenMini: {
-	      height: floatingActionButton.miniSize,
-	      lineHeight: floatingActionButton.miniSize + 'px'
-	    }
-	  };
-	}
-	
-	var FloatingActionButton = function (_Component) {
-	  (0, _inherits3.default)(FloatingActionButton, _Component);
-	
-	  function FloatingActionButton() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
-	    (0, _classCallCheck3.default)(this, FloatingActionButton);
-	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FloatingActionButton.__proto__ || (0, _getPrototypeOf2.default)(FloatingActionButton)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      hovered: false,
-	      touch: false,
-	      zDepth: undefined
-	    }, _this.handleMouseDown = function (event) {
-	      // only listen to left clicks
-	      if (event.button === 0) {
-	        _this.setState({ zDepth: _this.props.zDepth + 1 });
-	      }
-	      if (_this.props.onMouseDown) _this.props.onMouseDown(event);
-	    }, _this.handleMouseUp = function (event) {
-	      _this.setState({ zDepth: _this.props.zDepth });
-	      if (_this.props.onMouseUp) {
-	        _this.props.onMouseUp(event);
-	      }
-	    }, _this.handleMouseLeave = function (event) {
-	      if (!_this.refs.container.isKeyboardFocused()) {
-	        _this.setState({ zDepth: _this.props.zDepth, hovered: false });
-	      }
-	      if (_this.props.onMouseLeave) {
-	        _this.props.onMouseLeave(event);
-	      }
-	    }, _this.handleMouseEnter = function (event) {
-	      if (!_this.refs.container.isKeyboardFocused() && !_this.state.touch) {
-	        _this.setState({ hovered: true });
-	      }
-	      if (_this.props.onMouseEnter) {
-	        _this.props.onMouseEnter(event);
-	      }
-	    }, _this.handleTouchStart = function (event) {
-	      _this.setState({
-	        touch: true,
-	        zDepth: _this.props.zDepth + 1
-	      });
-	      if (_this.props.onTouchStart) {
-	        _this.props.onTouchStart(event);
-	      }
-	    }, _this.handleTouchEnd = function (event) {
-	      _this.setState({
-	        touch: true,
-	        zDepth: _this.props.zDepth
-	      });
-	      if (_this.props.onTouchEnd) {
-	        _this.props.onTouchEnd(event);
-	      }
-	    }, _this.handleKeyboardFocus = function (event, keyboardFocused) {
-	      if (keyboardFocused && !_this.props.disabled) {
-	        _this.setState({ zDepth: _this.props.zDepth + 1 });
-	        _this.refs.overlay.style.backgroundColor = (0, _colorManipulator.fade)(getStyles(_this.props, _this.context).icon.color, 0.4);
-	      } else if (!_this.state.hovered) {
-	        _this.setState({ zDepth: _this.props.zDepth });
-	        _this.refs.overlay.style.backgroundColor = 'transparent';
-	      }
-	    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-	  }
-	
-	  (0, _createClass3.default)(FloatingActionButton, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      this.setState({
-	        zDepth: this.props.disabled ? 0 : this.props.zDepth
-	      });
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      process.env.NODE_ENV !== "production" ? (0, _warning2.default)(!this.props.iconClassName || !this.props.children, 'Material-UI: You have set both an iconClassName and a child icon. ' + 'It is recommended you use only one method when adding ' + 'icons to FloatingActionButtons.') : void 0;
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	      var nextState = {};
-	
-	      if (nextProps.disabled !== this.props.disabled) {
-	        nextState.zDepth = nextProps.disabled ? 0 : this.props.zDepth;
-	      }
-	      if (nextProps.disabled) {
-	        nextState.hovered = false;
-	      }
-	
-	      this.setState(nextState);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props,
-	          backgroundColor = _props.backgroundColor,
-	          className = _props.className,
-	          childrenProp = _props.children,
-	          disabled = _props.disabled,
-	          mini = _props.mini,
-	          secondary = _props.secondary,
-	          iconStyle = _props.iconStyle,
-	          iconClassName = _props.iconClassName,
-	          zDepth = _props.zDepth,
-	          other = (0, _objectWithoutProperties3.default)(_props, ['backgroundColor', 'className', 'children', 'disabled', 'mini', 'secondary', 'iconStyle', 'iconClassName', 'zDepth']);
-	      var prepareStyles = this.context.muiTheme.prepareStyles;
-	
-	      var styles = getStyles(this.props, this.context);
-	
-	      var iconElement = void 0;
-	      if (iconClassName) {
-	        iconElement = _react2.default.createElement(_FontIcon2.default, {
-	          className: iconClassName,
-	          style: (0, _simpleAssign2.default)({}, styles.icon, mini && styles.iconWhenMini, iconStyle)
-	        });
-	      }
-	
-	      var children = void 0;
-	
-	      if (childrenProp) {
-	        children = (0, _childUtils.extendChildren)(childrenProp, function (child) {
-	          return {
-	            style: (0, _simpleAssign2.default)({}, styles.icon, mini && styles.iconWhenMini, iconStyle, child.props.style)
-	          };
-	        });
-	      }
-	
-	      var buttonEventHandlers = disabled ? null : {
-	        onMouseDown: this.handleMouseDown,
-	        onMouseUp: this.handleMouseUp,
-	        onMouseLeave: this.handleMouseLeave,
-	        onMouseEnter: this.handleMouseEnter,
-	        onTouchStart: this.handleTouchStart,
-	        onTouchEnd: this.handleTouchEnd,
-	        onKeyboardFocus: this.handleKeyboardFocus
-	      };
-	
-	      return _react2.default.createElement(
-	        _Paper2.default,
-	        {
-	          className: className,
-	          style: (0, _simpleAssign2.default)(styles.root, this.props.style),
-	          zDepth: this.state.zDepth,
-	          circle: true
-	        },
-	        _react2.default.createElement(
-	          _EnhancedButton2.default,
-	          (0, _extends3.default)({}, other, buttonEventHandlers, {
-	            ref: 'container',
-	            disabled: disabled,
-	            style: (0, _simpleAssign2.default)(styles.container, this.props.mini && styles.containerWhenMini, iconStyle),
-	            focusRippleColor: styles.icon.color,
-	            touchRippleColor: styles.icon.color
-	          }),
-	          _react2.default.createElement(
-	            'div',
-	            {
-	              ref: 'overlay',
-	              style: prepareStyles((0, _simpleAssign2.default)(styles.overlay, this.state.hovered && !this.props.disabled && styles.overlayWhenHovered))
-	            },
-	            iconElement,
-	            children
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	  return FloatingActionButton;
-	}(_react.Component);
-	
-	FloatingActionButton.defaultProps = {
-	  disabled: false,
-	  mini: false,
-	  secondary: false,
-	  zDepth: 2
-	};
-	FloatingActionButton.contextTypes = {
-	  muiTheme: _react.PropTypes.object.isRequired
-	};
-	process.env.NODE_ENV !== "production" ? FloatingActionButton.propTypes = {
-	  /**
-	   * This value will override the default background color for the button.
-	   * However it will not override the default disabled background color.
-	   * This has to be set separately using the disabledColor attribute.
-	   */
-	  backgroundColor: _react.PropTypes.string,
-	  /**
-	   * This is what displayed inside the floating action button; for example, a SVG Icon.
-	   */
-	  children: _react.PropTypes.node,
-	  /**
-	   * The css class name of the root element.
-	   */
-	  className: _react.PropTypes.string,
-	  /**
-	   * Disables the button if set to true.
-	   */
-	  disabled: _react.PropTypes.bool,
-	  /**
-	   * This value will override the default background color for the button when it is disabled.
-	   */
-	  disabledColor: _react.PropTypes.string,
-	  /**
-	   * The URL to link to when the button is clicked.
-	   */
-	  href: _react.PropTypes.string,
-	  /**
-	   * The icon within the FloatingActionButton is a FontIcon component.
-	   * This property is the classname of the icon to be displayed inside the button.
-	   * An alternative to adding an iconClassName would be to manually insert a
-	   * FontIcon component or custom SvgIcon component or as a child of FloatingActionButton.
-	   */
-	  iconClassName: _react.PropTypes.string,
-	  /**
-	   * This is the equivalent to iconClassName except that it is used for
-	   * overriding the inline-styles of the FontIcon component.
-	   */
-	  iconStyle: _react.PropTypes.object,
-	  /**
-	   * If true, the button will be a small floating action button.
-	   */
-	  mini: _react.PropTypes.bool,
-	  /** @ignore */
-	  onMouseDown: _react.PropTypes.func,
-	  /** @ignore */
-	  onMouseEnter: _react.PropTypes.func,
-	  /** @ignore */
-	  onMouseLeave: _react.PropTypes.func,
-	  /** @ignore */
-	  onMouseUp: _react.PropTypes.func,
-	  /** @ignore */
-	  onTouchEnd: _react.PropTypes.func,
-	  /** @ignore */
-	  onTouchStart: _react.PropTypes.func,
-	  /**
-	   * If true, the button will use the secondary button colors.
-	   */
-	  secondary: _react.PropTypes.bool,
-	  /**
-	   * Override the inline-styles of the root element.
-	   */
-	  style: _react.PropTypes.object,
-	  /**
-	   * The zDepth of the underlying `Paper` component.
-	   */
-	  zDepth: _propTypes2.default.zDepth
-	} : void 0;
-	exports.default = FloatingActionButton;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 368 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = undefined;
-	
-	var _FontIcon = __webpack_require__(369);
-	
-	var _FontIcon2 = _interopRequireDefault(_FontIcon);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = _FontIcon2.default;
-
-/***/ },
-/* 369 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _extends2 = __webpack_require__(181);
-	
-	var _extends3 = _interopRequireDefault(_extends2);
-	
-	var _objectWithoutProperties2 = __webpack_require__(219);
-	
-	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
-	
-	var _getPrototypeOf = __webpack_require__(220);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(225);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(226);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(230);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(265);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _simpleAssign = __webpack_require__(273);
-	
-	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _transitions = __webpack_require__(274);
-	
-	var _transitions2 = _interopRequireDefault(_transitions);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function getStyles(props, context, state) {
-	  var color = props.color,
-	      hoverColor = props.hoverColor;
-	  var baseTheme = context.muiTheme.baseTheme;
-	
-	  var offColor = color || baseTheme.palette.textColor;
-	  var onColor = hoverColor || offColor;
-	
-	  return {
-	    root: {
-	      color: state.hovered ? onColor : offColor,
-	      position: 'relative',
-	      fontSize: baseTheme.spacing.iconSize,
-	      display: 'inline-block',
-	      userSelect: 'none',
-	      transition: _transitions2.default.easeOut()
-	    }
-	  };
-	}
-	
-	var FontIcon = function (_Component) {
-	  (0, _inherits3.default)(FontIcon, _Component);
-	
-	  function FontIcon() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
-	    (0, _classCallCheck3.default)(this, FontIcon);
-	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FontIcon.__proto__ || (0, _getPrototypeOf2.default)(FontIcon)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      hovered: false
-	    }, _this.handleMouseLeave = function (event) {
-	      // hover is needed only when a hoverColor is defined
-	      if (_this.props.hoverColor !== undefined) {
-	        _this.setState({ hovered: false });
-	      }
-	      if (_this.props.onMouseLeave) {
-	        _this.props.onMouseLeave(event);
-	      }
-	    }, _this.handleMouseEnter = function (event) {
-	      // hover is needed only when a hoverColor is defined
-	      if (_this.props.hoverColor !== undefined) {
-	        _this.setState({ hovered: true });
-	      }
-	      if (_this.props.onMouseEnter) {
-	        _this.props.onMouseEnter(event);
-	      }
-	    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-	  }
-	
-	  (0, _createClass3.default)(FontIcon, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props,
-	          hoverColor = _props.hoverColor,
-	          onMouseLeave = _props.onMouseLeave,
-	          onMouseEnter = _props.onMouseEnter,
-	          style = _props.style,
-	          other = (0, _objectWithoutProperties3.default)(_props, ['hoverColor', 'onMouseLeave', 'onMouseEnter', 'style']);
-	      var prepareStyles = this.context.muiTheme.prepareStyles;
-	
-	      var styles = getStyles(this.props, this.context, this.state);
-	
-	      return _react2.default.createElement('span', (0, _extends3.default)({}, other, {
-	        onMouseLeave: this.handleMouseLeave,
-	        onMouseEnter: this.handleMouseEnter,
-	        style: prepareStyles((0, _simpleAssign2.default)(styles.root, style))
-	      }));
-	    }
-	  }]);
-	  return FontIcon;
-	}(_react.Component);
-	
-	FontIcon.muiName = 'FontIcon';
-	FontIcon.defaultProps = {
-	  onMouseEnter: function onMouseEnter() {},
-	  onMouseLeave: function onMouseLeave() {}
-	};
-	FontIcon.contextTypes = {
-	  muiTheme: _react.PropTypes.object.isRequired
-	};
-	process.env.NODE_ENV !== "production" ? FontIcon.propTypes = {
-	  /**
-	   * This is the font color of the font icon. If not specified,
-	   * this component will default to muiTheme.palette.textColor.
-	   */
-	  color: _react.PropTypes.string,
-	  /**
-	   * This is the icon color when the mouse hovers over the icon.
-	   */
-	  hoverColor: _react.PropTypes.string,
-	  /** @ignore */
-	  onMouseEnter: _react.PropTypes.func,
-	  /** @ignore */
-	  onMouseLeave: _react.PropTypes.func,
-	  /**
-	   * Override the inline-styles of the root element.
-	   */
-	  style: _react.PropTypes.object
-	} : void 0;
-	exports.default = FontIcon;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }
 /******/ ]);

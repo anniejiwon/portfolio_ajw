@@ -1,10 +1,43 @@
 body {
-    font-family: Courier New, sans-serif;
+    font-family: sans-serif;
 }
 
 #fullpage {
     position: relative;
 }
+
+#zero {
+    height: 90vh;
+    background-color: #212121;
+    position: relative;
+}
+#intro div#name {
+    color: white;
+    font-size: 20vh;
+    font-weight: 900;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    height: 20vh;
+    text-align: right;
+    position: absolute;
+    top: 40%;
+    right: 0;
+}
+#intro div#title {
+    color: white;
+    font-size: 4vh;
+    font-weight: 100;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    height: 10vh;
+    text-align: right;
+    position: absolute;
+    top: 65%;
+    right: 0;
+}
+
+
+
 #first {
     display: flex;
     justify-content: center;
@@ -19,11 +52,11 @@ body {
 }
 #welcome {
     color: darkgray; 
-    font-size: 20vw;
+    font-size: 17vw;
     text-align: center;
     overflow: hidden;
     width: 100%;
-    animation: type 2s steps(60, end); 
+    animation: type 1s steps(60, end); 
 }
 
 #down-arrow {
@@ -36,27 +69,50 @@ body {
 } 
 
 #second {
-    width: 100vw;
-    height: 100vh;
+    background-color: #CFD8DC;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #CFD8DC
-    
+    width: 100vw;
+    height: 80vh;
+}
+
+#thanksdiv {
 }
 
 #thanks {
     font-size: 5vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
+    margin-left: 10%;
 }
 
 #personaldiv {
-    margin: 0 auto;
 }
 
+div.container {
+    width: 30vw;
+}
+
+#contentpage {
+    position: relative;
+    height: 90vh;
+    overflow: scroll;
+}
+
+#myModal {
+    
+}
+
+#nameheader {
+    position: fixed;
+}
+
+#modalfooter {
+    position: fixed;
+    bottom: 0;
+}
+
+
+/*
 div#fullpage div.section div#personaldiv > div {
     color: red;
     border: 1px solid black;
@@ -65,7 +121,7 @@ div#fullpage div.section div#personaldiv > div {
     display: flex;
     justify-content: center;
     width: 60%;
-}
+}*/
 
 #third {
     height: 100vh;
