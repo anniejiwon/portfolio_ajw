@@ -11,18 +11,31 @@ body {
     background-color: #212121;
     position: relative;
 }
-#intro div#name {
+#intro div#name p {
     color: white;
     font-size: 20vh;
     font-weight: 900;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-    height: 20vh;
+    height: 100%;
     text-align: right;
     position: absolute;
     top: 40%;
     right: 0;
+    overflow: hidden;
+    /*white-space: nowrap;*/
+    /*animation: name 4s steps(60, end); */
 }
+
+/*@keyframes name {
+  from {
+    width: 1%;
+  }
+  to {
+    width: 100%;
+  }
+}*/
+
 #intro div#title {
     color: white;
     font-size: 4vh;
@@ -39,10 +52,11 @@ body {
 
 
 #first {
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
+    position: relative;
 }
 
 #btn {
@@ -50,13 +64,42 @@ body {
     bottom: 0;
     left: 0;
 }
-#welcome {
-    color: darkgray; 
-    font-size: 17vw;
-    text-align: center;
-    overflow: hidden;
+
+
+#first div#row-one {
+    display: flex;
+    margin-top: 20vh;
+}
+#first div#row-two {
+    display: flex;
+    margin-bottom: 20vh;
+}
+
+#first div.row div.col-xs-6 {
+    height: 25vh;
     width: 100%;
-    animation: type 1s steps(60, end); 
+    padding: 0;
+    /*margin-left: 1vh;
+    margin-right: 1vh;*/
+    color: darkgray; 
+    font-size: 2vh;
+    text-align: center;
+    border: 1px white solid;
+}
+/*
+#first div.row div.firstImg{
+    overflow: auto;
+    background-image: url("../images/beach.jpg");
+    background-size: cover;
+    
+}*/
+
+#posts {
+    position: absolute;
+    font-size: 10vh;
+    margin-top: 8vh;
+    left: 0;
+    color: #212121;
 }
 
 #down-arrow {
@@ -64,28 +107,28 @@ body {
     bottom: 0;
 }
 
-@keyframes type{ 
-  from { width: 0; } 
-} 
-
 #second {
-    background-color: #CFD8DC;
+    background-color: #212121;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 80vh;
+    height: 40vh;
 }
 
-#thanksdiv {
+#resume {
+    font-size: 2.5vw;
+    color: white;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    
 }
 
-#thanks {
-    font-size: 5vw;
-    margin-left: 10%;
-}
+#resume-modal {
 
-#personaldiv {
+    width: 25vh;
+    text-align: left;
 }
 
 div.container {
@@ -98,10 +141,6 @@ div.container {
     overflow: scroll;
 }
 
-#myModal {
-    
-}
-
 #nameheader {
     position: fixed;
 }
@@ -111,6 +150,10 @@ div.container {
     bottom: 0;
 }
 
+div div.container a.btn-secondary {
+    font-size: 3vh;
+    color: white;
+}
 
 /*
 div#fullpage div.section div#personaldiv > div {

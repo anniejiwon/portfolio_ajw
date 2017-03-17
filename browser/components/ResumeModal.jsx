@@ -3,24 +3,29 @@ import React, {Component} from 'react'
 export default class ResumeModal extends Component {
     constructor() {
         super()
+        
+        this._downloadResume = ::this._downloadResume
     }
 
     toggle = () => {
         this.setState({open: !this.state.open})
     }
 
+    _downloadResume = () => {
+        window.open('../../public/files/annie_won_resume.pdf')
+    }
     render() {
         return (
             <div>
                 <div className="container">
-            <a href="#myModal" className="btn btn-primary" data-toggle="modal">Launch demo modal</a>
+            <a href="#myModal" className="btn btn-info" data-toggle="modal">view resume</a>
             
             <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                 <div className="modal-content" id='contentpage'>
                     <div className="modal-header">
                     <button type="button" className="close" data-dismiss="modal" aria-hidden="true">x</button>
-                    <h4 className="modal-title" id='nameheader'>annie j won</h4>
+                    <h4 className="modal-title" id='nameheader'>annie ji won</h4>
                     </div>
                     <div className="modal-body">
                         <p><strong>software engineer</strong></p>
@@ -71,14 +76,14 @@ export default class ResumeModal extends Component {
                         <p>executing loan and consignment agreements with museums and  galleries</p>
                     </div>
                     <div className="modal-footer" id='modalfooter'>
-                        <button type="button" className="btn btn-default" data-dismiss="modal">download</button>
+                        
+                        <button type="submit" className="btn btn-default" data-dismiss="modal" onClick={() => this._downloadResume()}>download</button>
+                        
                         <button type="button" className="btn btn-primary">email a copy</button>
                     </div>
                 </div>
                 </div>
-            </div>
-            
-            
+            </div>            
             </div>
             </div>
 
@@ -86,3 +91,7 @@ export default class ResumeModal extends Component {
         
     }
 }
+
+
+
+//<button type="submit" onclick="window.open('file.doc')">Download!</button>

@@ -1,9 +1,8 @@
-import FloatingActionButton from 'material-ui/FloatingActionButton';
+// import FloatingActionButton from 'material-ui/FloatingActionButton';
 import React,{Component} from 'react'
 
+import Posts from './Posts'
 import ResumeModal from './ResumeModal'
-
-
 
 export default class Main extends Component {
 
@@ -38,29 +37,19 @@ export default class Main extends Component {
                 <div id='zero'>
                     <div id='intro'>
                         <div id='name'>
-                            <p>ANNIE J WON</p>
+                            <p>ANNIE Ji WON</p>
                         </div>
                         <div id='title'>
                             <p><em>full stack software engineer</em></p>
                         </div>
                     </div>
                 </div>
-                <div id='first' className='section'>
-                    <div>
-                        <h1 id='welcome'>WELCOME</h1>
-                    </div>
-                    <div id='down-arrow' className="animated bounce">
-                        <svg fill="#000000" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
-                            <path d="M0-.75h24v24H0z" fill="none"/>
-                        </svg>
-                    </div>
-                </div>
+                <Posts />
                 <div className='section' id='second'>
                     <div id='thankdiv'>
-                        <p id='thanks'>my resume can be viewed here</p>
+                        <p id='resume'>my resume can be viewed here ~></p>
                     </div>
-                    <div id='personaldiv'>
+                    <div id='resume-modal'>
                         <ResumeModal />
                     </div>
                 </div>
@@ -71,6 +60,13 @@ export default class Main extends Component {
         )
     }
 }
+
+                    /*<div id='down-arrow' className="animated bounce">
+                        <svg fill="#000000" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                            <path d="M0-.75h24v24H0z" fill="none"/>
+                        </svg>
+                    </div>*/
 
                     // <div id='btn'>
                     //     <FloatingActionButton id='floatbtn' label="Secondary" />
