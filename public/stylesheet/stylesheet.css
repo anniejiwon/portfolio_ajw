@@ -52,12 +52,17 @@ body {
 
 
 #first {
-    /*display: flex;*/
+    position: absolute;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 55vh;
     position: relative;
+    
 }
+/*#first div.color {
+    background-color: blue;
+    opacity: 0.2;
+}*/
 
 #btn {
     position: fixed;
@@ -84,27 +89,26 @@ body {
     color: darkgray; 
     font-size: 2vh;
     text-align: center;
-    border: 1px white solid;
+    border: 1px solid white;
 }
-/*
-#first div.row div.firstImg{
-    overflow: auto;
-    background-image: url("../images/beach.jpg");
-    background-size: cover;
-    
-}*/
 
 #posts {
+    
     position: absolute;
     font-size: 10vh;
     margin-top: 8vh;
     left: 0;
     color: #212121;
+
 }
 
-#down-arrow {
+#footer-arrow {
+    width: 100vw;
     position: fixed;
     bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #second {
@@ -131,6 +135,12 @@ body {
     text-align: left;
 }
 
+#modalfooter {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+}
+
 div.container {
     width: 30vw;
 }
@@ -145,10 +155,7 @@ div.container {
     position: fixed;
 }
 
-#modalfooter {
-    position: fixed;
-    bottom: 0;
-}
+
 
 div div.container a.btn-secondary {
     font-size: 3vh;
@@ -169,4 +176,44 @@ div#fullpage div.section div#personaldiv > div {
 #third {
     height: 100vh;
     width: 100vw;
+}
+
+/*#forth {*/
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
+    /*border: 3px solid red;
+    height: 90vh;
+    width: 100%;*/
+    /*position: relative;*/
+/*}*/
+
+#project {
+    position: relative;    
+    height: 40vh;
+
+}
+
+#project-header {
+    position: absolute;
+    color: white;
+    padding-top: 2vh;
+    right: 0;
+    
+}
+
+#project-header h4 {
+    color: white;
+    font-size: 10vh;
+
+}
+
+#project a img {
+
+    position: relative;
+    width: 100vw;
+    height: 30vh;
+    z-index: -100;
+    top: 50%;
+    margin-top: 5vh;
 }

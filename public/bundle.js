@@ -21543,6 +21543,10 @@
 	
 	var _Posts2 = _interopRequireDefault(_Posts);
 	
+	var _Project = __webpack_require__(336);
+	
+	var _Project2 = _interopRequireDefault(_Project);
+	
 	var _ResumeModal = __webpack_require__(180);
 	
 	var _ResumeModal2 = _interopRequireDefault(_ResumeModal);
@@ -21564,35 +21568,25 @@
 	
 	        var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this));
 	
-	        _this.handleResumeToggle = function () {
-	            console.log('has been clicked!!');
-	            _this.setState({ resumeIsHidden: !_this.state.resumeIsHidden });
-	        };
-	
-	        _this.hideArrow = function () {
+	        _this._hideArrow = function () {
+	            console.log('scroll');
 	            if (window.innerHeight + window.scrollY > document.body.clientHeight) {
-	                document.getElementById('down-arrow').style.display = 'none';
+	                document.getElementById('footer-arrow').style.display = 'none';
 	            }
 	        };
 	
-	        _this.state = {
-	            resumeIsHidden: true
-	        };
-	        _this.handleResumeToggle = _this.handleResumeToggle.bind(_this);
+	        _this._hideArrow = _this._hideArrow.bind(_this);
 	        return _this;
 	    }
 	
+	    //currently not getting into this func
+	
+	
 	    _createClass(Main, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            this.hideArrow();
-	        }
-	
-	        //only works on refresh right now
-	
-	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+	
 	            return _react2.default.createElement(
 	                'div',
 	                { id: 'fullpage' },
@@ -21627,6 +21621,7 @@
 	                    )
 	                ),
 	                _react2.default.createElement(_Posts2.default, null),
+	                _react2.default.createElement(_Project2.default, null),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'section', id: 'second' },
@@ -21653,6 +21648,22 @@
 	                        null,
 	                        'you can find me at'
 	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { id: 'footer-arrow', onScroll: function onScroll() {
+	                            return _this2._hideArrow();
+	                        } },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { id: 'down-arrow', className: 'animated bounce' },
+	                        _react2.default.createElement(
+	                            'svg',
+	                            { fill: '#000000', height: '50', viewBox: '0 0 24 24', width: '50', xmlns: 'http://www.w3.org/2000/svg' },
+	                            _react2.default.createElement('path', { d: 'M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z' }),
+	                            _react2.default.createElement('path', { d: 'M0-.75h24v24H0z', fill: 'none' })
+	                        )
+	                    )
 	                )
 	            );
 	        }
@@ -21660,20 +21671,6 @@
 	
 	    return Main;
 	}(_react.Component);
-	
-	/*<div id='down-arrow' className="animated bounce">
-	    <svg fill="#000000" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
-	        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
-	        <path d="M0-.75h24v24H0z" fill="none"/>
-	    </svg>
-	</div>*/
-	
-	// <div id='btn'>
-	//     <FloatingActionButton id='floatbtn' label="Secondary" />
-	//     <FloatingActionButton id='floatbtn' label="Secondary" />
-	//     <FloatingActionButton id='floatbtn' label="Secondary" />
-	// </div>
-	
 	
 	exports.default = Main;
 
@@ -21727,55 +21724,6 @@
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'col-xs-6 col-md-4 firstImg' },
-	                        _react2.default.createElement('img', { className: 'scale', width: '100%', height: '100%', src: '../../public/images/beach.jpg' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-xs-6 col-md-4' },
-	                        _react2.default.createElement('img', { className: 'scale', width: '100%', height: '100%', src: '../../public/images/beach.jpg' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-xs-6 col-md-4' },
-	                        _react2.default.createElement('img', { className: 'scale', width: '100%', height: '100%', src: '../../public/images/beach.jpg' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-xs-6 col-md-4' },
-	                        _react2.default.createElement('img', { className: 'scale', width: '100%', height: '100%', src: '../../public/images/beach.jpg' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-xs-6 col-md-4' },
-	                        _react2.default.createElement('img', { className: 'scale', width: '100%', height: '100%', src: '../../public/images/beach.jpg' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-xs-6 col-md-4' },
-	                        _react2.default.createElement('img', { className: 'scale', width: '100%', height: '100%', src: '../../public/images/beach.jpg' })
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'row', id: 'row-two' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-xs-6 col-md-4' },
-	                        _react2.default.createElement('img', { className: 'scale', width: '100%', height: '100%', src: '../../public/images/beach.jpg' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-xs-6 col-md-4' },
-	                        _react2.default.createElement('img', { className: 'scale', width: '100%', height: '100%', src: '../../public/images/beach.jpg' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-xs-6 col-md-4' },
-	                        _react2.default.createElement('img', { className: 'scale', width: '100%', height: '100%', src: '../../public/images/beach.jpg' })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-xs-6 col-md-4' },
 	                        _react2.default.createElement('img', { className: 'scale', width: '100%', height: '100%', src: '../../public/images/beach.jpg' })
 	                    ),
 	                    _react2.default.createElement(
@@ -22128,11 +22076,6 @@
 	                                                return _this2._downloadResume();
 	                                            } },
 	                                        'download'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'button',
-	                                        { type: 'button', className: 'btn btn-primary' },
-	                                        'email a copy'
 	                                    )
 	                                )
 	                            )
@@ -22145,9 +22088,6 @@
 	
 	    return ResumeModal;
 	}(_react.Component);
-	
-	//<button type="submit" onclick="window.open('file.doc')">Download!</button>
-	
 	
 	exports.default = ResumeModal;
 
@@ -30035,6 +29975,72 @@
 	};
 	
 	module.exports = keyOf;
+
+/***/ },
+/* 336 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Project = function (_Component) {
+	    _inherits(Project, _Component);
+	
+	    function Project() {
+	        _classCallCheck(this, Project);
+	
+	        return _possibleConstructorReturn(this, (Project.__proto__ || Object.getPrototypeOf(Project)).apply(this, arguments));
+	    }
+	
+	    _createClass(Project, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { id: 'project' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { id: 'project-header' },
+	                    _react2.default.createElement(
+	                        'h4',
+	                        null,
+	                        'project pgb-vsu'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'a',
+	                    { href: 'http://www.pgb-vsu.club', target: '_blank' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { id: 'project-img' },
+	                        _react2.default.createElement('img', { className: 'pgbvsu', src: '../../public/images/pgb.jpg' })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Project;
+	}(_react.Component);
+	
+	exports.default = Project;
 
 /***/ }
 /******/ ]);

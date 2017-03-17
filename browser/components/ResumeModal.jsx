@@ -14,6 +14,7 @@ export default class ResumeModal extends Component {
     _downloadResume = () => {
         window.open('../../public/files/annie_won_resume.pdf')
     }
+
     render() {
         return (
             <div>
@@ -76,10 +77,7 @@ export default class ResumeModal extends Component {
                         <p>executing loan and consignment agreements with museums and  galleries</p>
                     </div>
                     <div className="modal-footer" id='modalfooter'>
-                        
                         <button type="submit" className="btn btn-default" data-dismiss="modal" onClick={() => this._downloadResume()}>download</button>
-                        
-                        <button type="button" className="btn btn-primary">email a copy</button>
                     </div>
                 </div>
                 </div>
@@ -93,5 +91,3 @@ export default class ResumeModal extends Component {
 }
 
 
-
-//<button type="submit" onclick="window.open('file.doc')">Download!</button>
