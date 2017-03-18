@@ -7,7 +7,7 @@ body {
 }
 
 #zero {
-    height: 90vh;
+    height: 95vh;
     background-color: #212121;
     position: relative;
 }
@@ -52,17 +52,12 @@ body {
 
 
 #first {
-    position: absolute;
     justify-content: center;
     align-items: center;
-    height: 55vh;
     position: relative;
-    
+    margin-top: 5vh;
 }
-/*#first div.color {
-    background-color: blue;
-    opacity: 0.2;
-}*/
+
 
 #btn {
     position: fixed;
@@ -71,9 +66,20 @@ body {
 }
 
 
+#first div.contain-images {
+    position: relative;
+}
+
+#first div.contain-images h4 {
+    position: absolute;
+    z-index: 100;
+    font-size: 10vh;
+}
+
+
+
 #first div#row-one {
     display: flex;
-    margin-top: 20vh;
 }
 #first div#row-two {
     display: flex;
@@ -142,7 +148,7 @@ body {
 }
 
 div.container {
-    width: 30vw;
+    width: 50vw;
 }
 
 #contentpage {

@@ -18,3 +18,4 @@ npm start
 
 * [REACT](https://facebook.github.io/react/)
 * [EXPRESS](https://expressjs.com/)
+* [FIREBASE](https://firebase.google.com/)
