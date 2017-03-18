@@ -123,7 +123,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 40vh;
+    height: 70vh;
 }
 
 #resume {
@@ -179,7 +179,7 @@ div#fullpage div.section div#personaldiv > div {
     width: 60%;
 }*/
 
-#third {
+#social {
     height: 100vh;
     width: 100vw;
 }

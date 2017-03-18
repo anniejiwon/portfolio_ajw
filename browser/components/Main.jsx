@@ -4,6 +4,7 @@ import React,{Component} from 'react'
 import Posts from './Posts'
 import Project from './Project'
 import ResumeModal from './ResumeModal'
+import Social from './Social'
 
 export default class Main extends Component {
 
@@ -46,9 +47,7 @@ export default class Main extends Component {
                     </div>
                 </div>
 
-                <div id='third'>
-                    <p>you can find me at</p>
-                </div>
+                <Social />
                 <div id='footer-arrow' onScroll={() => this._hideArrow()}> 
                     <div id='down-arrow' className="animated bounce">
                             <svg fill="#000000" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">

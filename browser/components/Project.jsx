@@ -10,10 +10,11 @@ export default class Project extends Component {
                 </div>
                 <a href='http://www.pgb-vsu.club' target='_blank'>
                     <div id='project-img'>
-                        <img className='pgbvsu'src='../../public/images/pgb.jpg' />                    
+                        <img className='pgbvsu' height='100%' width='100%' src='../../public/images/pgb.jpg' />                    
                     </div>
                 </a>
             </div>
         )
     }
 }
+
